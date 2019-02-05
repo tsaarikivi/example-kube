@@ -10,6 +10,7 @@
   "author": "Slush",
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.0",
     "typescript": "^3.3.1"
   },
   "dependencies": {
