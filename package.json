@@ -1,0 +1,18 @@
+{
+  "name": "test-service",
+  "version": "1.0.0",
+  "description": "A testing microservice",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "NODE_ENV=production node dist/src/main.js"
+  },
+  "author": "Slush",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

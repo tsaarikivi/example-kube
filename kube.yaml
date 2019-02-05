@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-service
+spec:
+  selector:
+    app: test-platform
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: hello
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: test-platform
+  template:
+    metadata:
+      labels:
+        app: test-platform
+        tier: backend
+    spec:
+      containers:
+      - image: gcr.io/slush-app-staging/test-service:1.0.0
+        name: test-service
+        ports:
+        - name: test-service
+          containerPort: 8080
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ping
+            port: 8080 # dunno if this is needed
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ping
+            port: 8080 # dunno if this is needed
+          initialDelaySeconds: 3
+          periodSeconds: 3
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: test-service-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-service
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 66
