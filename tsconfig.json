@@ -11,10 +11,11 @@
     "module": "es2015",
     "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "outDir": "dist"
   },
   "include": [
     "**/*.ts"
   ],
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp", "dist"]
 }
