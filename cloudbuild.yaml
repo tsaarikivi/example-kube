@@ -20,10 +20,8 @@ steps:
       - deployment
       - test-service
       - test-service=gcr.io/$PROJECT_ID/test-service:$COMMIT_SHA
-      - --namespace=$_KUBE_NAMESPACE
+      - --namespace=$BRANCH_NAME
     env:
-      - CLOUDSDK_COMPUTE_ZONE=europe-north1
+      - CLOUDSDK_COMPUTE_ZONE=europe-north1-a
       - CLOUDSDK_CONTAINER_CLUSTER=testing-cluster
-
-substitutions:
-  _KUBE_NAMESPACE: development
+# log
