@@ -3,12 +3,14 @@ kind: Service
 metadata:
   name: test-service
 spec:
+  type: NodePort
   selector:
     app: test-service
     tier: backend
   ports:
-  - protocol: TCP
-    port: 80
+  - name: test-service
+    protocol: TCP
+    port: 443
     targetPort: test-service
 ---
 apiVersion: apps/v1
