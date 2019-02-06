@@ -4,7 +4,7 @@ metadata:
   name: test-service
 spec:
   selector:
-    app: test-platform
+    app: test-service
     tier: backend
   ports:
   - protocol: TCP
@@ -18,11 +18,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: test-platform
+      app: test-service
   template:
     metadata:
       labels:
-        app: test-platform
+        app: test-service
         tier: backend
     spec:
       containers:
