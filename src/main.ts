@@ -1,8 +1,8 @@
 import * as express from 'express';
 
 const app = express();
-const port = 8080
+const port = 8080;
 
-app.get('/ping', (req, res) => res.send('pong'))
+app.get('/ping', (req, res) => res.send('pong'));
 
-app.listen(port, () => console.log('App listening on port', port))
+app.listen(port, () => console.log('App listening on port', port));
