@@ -18,7 +18,7 @@ steps:
       - set
       - image
       - deployment
-      - test-service
+      - test-service-deployment
       - test-service=gcr.io/$PROJECT_ID/test-service:$COMMIT_SHA
       - --namespace=$_KUBE_NAMESPACE
     env:
