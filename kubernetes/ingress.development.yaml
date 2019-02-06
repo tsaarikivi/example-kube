@@ -3,15 +3,15 @@ kind: Ingress
 metadata:
   name: platform-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "testing-static-ip"
-    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.global-static-ip-name: 'testing-static-ip'
+    kubernetes.io/ingress.allow-http: 'false'
 spec:
   tls:
-  - secretName: ingress-secret
+    - secretName: ingress-secret
   rules:
-  - host: development-test-service.slush.org
-    http:
-      paths:
-      - backend:
-          serviceName: test-service
-          servicePort: test-service
+    - host: development-test-service.slush.org
+      http:
+        paths:
+          - backend:
+              serviceName: test-service
+              servicePort: test-service

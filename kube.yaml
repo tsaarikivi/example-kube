@@ -8,10 +8,10 @@ spec:
     app: test-service
     tier: backend
   ports:
-  - name: test-service
-    protocol: TCP
-    port: 443
-    targetPort: test-service
+    - name: test-service
+      protocol: TCP
+      port: 443
+      targetPort: test-service
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,25 +28,32 @@ spec:
         tier: backend
     spec:
       containers:
-      - image: gcr.io/slush-app-staging/test-service:8abf569d6ac09d080e3d7c359391682218c79cfd
-        name: test-service
-        ports:
-        - name: test-service
-          containerPort: 8080
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /ping
-            port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 3
-        readinessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /ping
-            port: 8080
-          initialDelaySeconds: 3
-          periodSeconds: 3
+        - image: gcr.io/slush-app-staging/test-service:8abf569d6ac09d080e3d7c359391682218c79cfd
+          name: test-service
+          ports:
+            - name: test-service
+              containerPort: 8080
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          env:
+            - name: ENV_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: ENV_NAME
+                  name: env-name
+
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
