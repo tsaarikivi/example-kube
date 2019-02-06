@@ -9,7 +9,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: hello
+    targetPort: test-service
 ---
 apiVersion: apps/v1
 kind: Deployment
