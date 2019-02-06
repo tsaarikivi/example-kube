@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: platform-ingress
+  namespace: development
   annotations:
     kubernetes.io/ingress.global-static-ip-name: 'testing-static-ip'
     kubernetes.io/ingress.allow-http: 'false'
@@ -15,3 +16,4 @@ spec:
           - backend:
               serviceName: test-service
               servicePort: test-service
+# you would add other ingresses here for staging and production
