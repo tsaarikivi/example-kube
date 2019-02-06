@@ -24,4 +24,3 @@ steps:
     env:
       - CLOUDSDK_COMPUTE_ZONE=europe-north1-a
       - CLOUDSDK_CONTAINER_CLUSTER=testing-cluster
-# log
