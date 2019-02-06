@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-service-deployment
+  name: test-service
 spec:
   selector:
     matchLabels:
