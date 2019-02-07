@@ -4,8 +4,8 @@ metadata:
   name: platform-ingress
   namespace: development
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: 'testing-static-ip'
-    kubernetes.io/ingress.allow-http: 'false'
+    kubernetes.io/ingress.global-static-ip-name: testing-static-ip
+    kubernetes.io/ingress.allow-http: false
 spec:
   tls:
     - secretName: ingress-secret
