@@ -5,9 +5,13 @@
 [https://cloud.google.com/kubernetes-engine/docs/quickstart](https://cloud.google.com/kubernetes-engine/docs/quickstart)
 
 `gcloud components update`
+
 `gcloud components install kubectl`
+
 `gcloud config set project <project-id>`
+
 `gcloud config set compute/zone <compute-zone>`
+
 `gcloud container clusters get-credentials <cluster-name>`
 
 ## 2. deploy the service
@@ -15,7 +19,9 @@
 The service should be once deployed to each environment. Eg. development, staging and production. Rest is automated.
 
 `kubectl apply -f kube.yaml --namespace=development`
+
 `kubectl apply -f kube.yaml --namespace=staging`
+
 `kubectl apply -f kube.yaml --namespace=production`
 
 ## 3. push your repo
